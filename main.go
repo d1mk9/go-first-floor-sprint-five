@@ -130,7 +130,7 @@ type Walking struct {
 // Это переопределенный метод Calories() из Training.
 func (w Walking) Calories() float64 {
 	sSpeed := w.meanSpeed()
-	wCalWeight := ((CaloriesWeightMultiplier*w.Training.Weight + (math.Pow(sSpeed, 2))/w.Height) * CaloriesSpeedHeightMultiplier * w.Training.Weight)
+	wCalWeight := ((CaloriesWeightMultiplier*w.Training.Weight + (math.Pow(sSpeed, 2))/w.Height/CmInM) * CaloriesSpeedHeightMultiplier * w.Training.Weight)
 	wCalTime := w.Duration.Hours() * MinInHours
 	return wCalWeight * float64(wCalTime)
 }
